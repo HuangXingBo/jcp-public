@@ -130,7 +130,7 @@ JcpPyObject_FromJObject(JNIEnv* env, jobject value)
         result = JcpPyNumpyArray_FromJFloatArray(env, value);
     } else if ((*env)->IsSameObject(env, clazz, JDOUBLE_ARRAY_TYPE)) {
         result = JcpPyNumpyArray_FromJDoubleArray(env, value);
-    } else if ((*env)->IsSameObject(env, clazz, JOBJECT_ARRAY_TYPE)) {
+    } else if ((*env)->IsInstanceOf(env, value, JOBJECT_ARRAY_TYPE)) {
         result = JcpPyList_FromJObjectArray(env, value);
     } else if ((*env)->IsSameObject(env, clazz, JSQLDATE_TYPE)) {
         result = JcpPyDate_FromJSqlDate(env, value);
